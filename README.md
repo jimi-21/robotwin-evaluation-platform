@@ -2,10 +2,10 @@
 
 # RoboTwin Evaluation Platform
 
-[![Verify](https://github.com/hejingming368-max/robotwin-evaluation-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/hejingming368-max/robotwin-evaluation-platform/actions/workflows/ci.yml)
+[![Verify](https://github.com/jimi-21/robotwin-evaluation-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/jimi-21/robotwin-evaluation-platform/actions/workflows/ci.yml)
 [![Java 17](https://img.shields.io/badge/Java-17-0F766E)](https://openjdk.org/projects/jdk/17/)
 [![Spring Boot 3](https://img.shields.io/badge/Spring%20Boot-3.5-1D4ED8)](https://spring.io/projects/spring-boot)
-[![Version](https://img.shields.io/badge/Version-0.2.0-334155)](https://github.com/hejingming368-max/robotwin-evaluation-platform)
+[![Version](https://img.shields.io/badge/Version-0.2.0-334155)](https://github.com/jimi-21/robotwin-evaluation-platform)
 
 基于真实 RoboTwin 比赛工程经历，使用 **Java 17 / Spring Boot 3** 独立实现的模型评测与交付后端。覆盖评测任务状态机、不可变配置快照、逐场结果审计，以及大文件分片上传、断点续传和 SHA256 完整性校验。
 

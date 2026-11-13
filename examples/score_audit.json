@@ -1,0 +1,71 @@
+{
+  "episode_records": [
+    {
+      "episode": 0,
+      "seed": 2,
+      "arm_tag": "unknown",
+      "success": false,
+      "steps": 400,
+      "jitter": 0.298434,
+      "instruction": "Simultaneously grab the bread with golden crust and the doughy and soft bread using the dual arm, then drop them in the wooden breadbasket.",
+      "video": "episode0.mp4"
+    },
+    {
+      "episode": 1,
+      "seed": 3,
+      "arm_tag": "unknown",
+      "success": true,
+      "steps": 232,
+      "jitter": 0.270204,
+      "instruction": "Lift the square-shaped bread and the golden bread loaf with soft inside with two arms, put in the beige breadbasket for holding bread.",
+      "video": "episode1.mp4"
+    },
+    {
+      "episode": 2,
+      "seed": 4,
+      "arm_tag": "unknown",
+      "success": false,
+      "steps": 400,
+      "jitter": 0.42301,
+      "instruction": "Pick the smooth crusty small bread and the bread loaf with square shape, place them in the oval basket for bread.",
+      "video": "episode2.mp4"
+    },
+    {
+      "episode": 3,
+      "seed": 8,
+      "arm_tag": "unknown",
+      "success": true,
+      "steps": 229,
+      "jitter": 0.255939,
+      "instruction": "Lift the smooth loaf with rounded edges and the bread loaf with square shape at once with the dual arm, then set them in the breadbasket with spiral lines.",
+      "video": "episode3.mp4"
+    },
+    {
+      "episode": 4,
+      "seed": 11,
+      "arm_tag": "unknown",
+      "success": true,
+      "steps": 210,
+      "jitter": 0.242132,
+      "instruction": "Lift the bread with split top and the smooth crusty small bread at once with the dual arm, then set them in the textured beige breadbasket.",
+      "video": "episode4.mp4"
+    }
+  ],
+  "score": {
+    "total": 79.7,
+    "success_rate": 0.6,
+    "success_score": 25.0,
+    "efficiency_score": 35.3,
+    "stability_score": 19.5,
+    "mean_success_steps": 223.7,
+    "mean_jitter": 0.297944,
+    "segment_stats": [
+      {
+        "name": "clean",
+        "success": 3,
+        "total": 5,
+        "rate": 0.6
+      }
+    ]
+  }
+}

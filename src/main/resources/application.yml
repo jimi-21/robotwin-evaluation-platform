@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: robotwin-evaluation-platform
+  datasource:
+    url: "${DB_URL:jdbc:h2:file:./data/robotwin;MODE=MySQL}"
+    username: "${DB_USERNAME:sa}"
+    password: "${DB_PASSWORD:}"
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  jackson:
+    default-property-inclusion: non_null
+server:
+  port: "${SERVER_PORT:8080}"
+  shutdown: graceful
+
+app:
+  security:
+    jwt-secret: "${APP_JWT_SECRET:local-only-change-me-0123456789abcdef0123456789abcdef}"
+    access-token-ttl: "${ACCESS_TOKEN_TTL:2h}"
+    admin-username: "${ADMIN_USERNAME:admin}"
+    admin-password: "${ADMIN_PASSWORD:robotwin-local-admin}"
+    viewer-username: "${VIEWER_USERNAME:viewer}"
+    viewer-password: "${VIEWER_PASSWORD:robotwin-local-viewer}"
+  storage:
+    root: "${STORAGE_ROOT:./storage}"
+  evaluation:
+    executor: "${EVALUATION_EXECUTOR:demo}"
+    demo-delay: "${EVALUATION_DEMO_DELAY:50ms}"
+  robotwin:
+    base-url: "${ROBOTWIN_BASE_URL:http://localhost:8000}"
+    health-path: "${ROBOTWIN_HEALTH_PATH:/health}"
+    episode-path: "${ROBOTWIN_EPISODE_PATH:/v1/episodes}"
+    api-key: "${ROBOTWIN_API_KEY:}"
+    connect-timeout: "${ROBOTWIN_CONNECT_TIMEOUT:5s}"
+    request-timeout: "${ROBOTWIN_REQUEST_TIMEOUT:10m}"
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: when_authorized
+      roles: ADMIN
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %-5level [%X{requestId}] %logger{36} - %msg%n"

@@ -1,0 +1,8 @@
+target/
+data/
+storage/
+.git/
+.github/
+.idea/
+.work/
+*.log

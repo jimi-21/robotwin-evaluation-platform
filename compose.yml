@@ -1,0 +1,42 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: robotwin
+      MYSQL_USER: robotwin
+      MYSQL_PASSWORD: robotwin
+      MYSQL_ROOT_PASSWORD: local-root-only
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-plocal-root-only"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build: .
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: mysql
+      DB_URL: jdbc:mysql://mysql:3306/robotwin?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: robotwin
+      DB_PASSWORD: robotwin
+      STORAGE_ROOT: /app/storage
+      APP_JWT_SECRET: ${APP_JWT_SECRET:-local-only-change-me-0123456789abcdef0123456789abcdef}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-robotwin-local-admin}
+      VIEWER_USERNAME: ${VIEWER_USERNAME:-viewer}
+      VIEWER_PASSWORD: ${VIEWER_PASSWORD:-robotwin-local-viewer}
+    ports:
+      - "8080:8080"
+    volumes:
+      - upload-data:/app/storage
+
+volumes:
+  mysql-data:
+  upload-data:

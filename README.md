@@ -25,6 +25,17 @@
 - **可追踪审计**：关键状态变更写入审计表并记录实际操作人，请求通过 `X-Request-Id` 关联。
 - **工程基础**：Flyway 迁移、Bean Validation、RFC 7807 错误响应、Swagger UI、健康检查和集成测试。
 
+## 可视化控制台
+
+启动后访问 <http://localhost:8080>，登录管理员或只读账号即可使用：
+
+- 一键注册模型、创建并执行五场景评测，实时查看运行状态和成功率；
+- 查看每次运行的逐场结果、步数和 Jitter；
+- 在浏览器内计算文件及分片 SHA256，完成分片上传、合并校验和已验证文件下载；
+- 直接跳转 Swagger API 文档，管理员和只读角色具有不同操作权限。
+
+![RoboTwin EvalHub dashboard](docs/assets/dashboard.png)
+
 ## 架构
 
 ```mermaid
@@ -59,6 +70,7 @@ mvn spring-boot:run
 
 打开：
 
+- 可视化控制台：<http://localhost:8080>
 - Swagger UI：<http://localhost:8080/swagger-ui.html>
 - 健康检查：<http://localhost:8080/actuator/health>
 

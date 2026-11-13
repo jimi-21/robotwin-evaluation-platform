@@ -28,6 +28,14 @@ class SecurityIntegrationTest extends IntegrationTestSupport {
     }
 
     @Test
+    void servesDashboardWithoutAuthentication() throws Exception {
+        mockMvc.perform(get("/index.html"))
+                .andExpect(status().isOk())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.content()
+                        .string(org.hamcrest.Matchers.containsString("RoboTwin EvalHub")));
+    }
+
+    @Test
     void viewerCanReadButCannotMutateResources() throws Exception {
         String token = login("viewer", "robotwin-local-viewer").get("accessToken").asText();
         mockMvc.perform(get("/api/v1/models").header("Authorization", "Bearer " + token))

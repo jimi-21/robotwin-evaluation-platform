@@ -44,8 +44,8 @@ public class SecurityConfig {
                                 response, objectMapper, HttpServletResponse.SC_FORBIDDEN, "ACCESS_DENIED",
                                 "The current role cannot perform this operation")))
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/v1/auth/login", "/v3/api-docs/**", "/swagger-ui/**",
-                                "/swagger-ui.html", "/actuator/health").permitAll()
+                        .requestMatchers("/", "/index.html", "/favicon.ico", "/api/v1/auth/login",
+                                "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/actuator/health").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/**").hasAnyRole("ADMIN", "VIEWER")
                         .requestMatchers("/api/v1/**").hasRole("ADMIN")
                         .anyRequest().denyAll())
